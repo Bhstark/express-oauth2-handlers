@@ -22,6 +22,12 @@ const __isExpressCall = (arg1, arg2) =>
 const isFuncOrStr = x => ['function', 'string'].includes(typeof x);
 
 exports.init = (arg1, arg2, arg3) => {
+  console.log("in_init");
+  console.log(arg1);
+  console.log("arg2");
+  console.log(arg2);
+  console.log("arg3");
+  console.log(arg3);
   const handler = (req, res, scopes, next) => {
     res.redirect(
       tokenStorage.getUnauthedClient(req, res).generateAuthUrl({
