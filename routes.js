@@ -22,19 +22,27 @@ const __isExpressCall = (arg1, arg2) =>
 const isFuncOrStr = x => ['function', 'string'].includes(typeof x);
 
 exports.init = (arg1, arg2, arg3) => {
-  console.log("in_init");
+  console.log("olin_init");
   console.log(arg1);
-  console.log("arg2");
+  console.log("olarg2");
   console.log(arg2);
-  console.log("arg3");
+  console.log("olarg3");
   console.log(arg3);
   const handler = (req, res, scopes, next) => {
+  console.log("in_init");
+  console.log(req);
+  console.log("arg2");
+  console.log(res);
+  console.log("arg3");
+  console.log(scopes);
+  console.log("arg4");
+  console.log(next);
     res.redirect(
       tokenStorage.getUnauthedClient(req, res).generateAuthUrl({
         access_type: 'offline',
         scope: scopes,
         prompt: 'consent', // Needed so we receive a refresh token every time
-        state: JSON.stringify({ my: 'name_is_slim_shady' })
+        state: JSON.stringify({ my: 'name_was_slim_shady' })
       })
     );
     if (next) {
