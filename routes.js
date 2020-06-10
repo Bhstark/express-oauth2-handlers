@@ -23,17 +23,14 @@ const isFuncOrStr = x => ['function', 'string'].includes(typeof x);
 
 exports.init = (arg1, arg2, arg3) => {
   const handler = (req, res, scopes, next) => {
-  console.log("in_init");
-  console.log(req.query);
     var a = req.query.user_id;
-    console.log("in_init_a");
-    console.log(a)
+    var b = req.query.team_id;
     res.redirect(
       tokenStorage.getUnauthedClient(req, res).generateAuthUrl({
         access_type: 'offline',
         scope: scopes,
         prompt: 'consent', // Needed so we receive a refresh token every time
-        state: JSON.stringify({user_id:a})
+        state: JSON.stringify({user_id:a,team_id:b})
       })
       
     );
