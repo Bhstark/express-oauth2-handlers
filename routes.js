@@ -25,13 +25,17 @@ exports.init = (arg1, arg2, arg3) => {
   const handler = (req, res, scopes, next) => {
   console.log("in_init");
   console.log(req.query);
+    var a = req.query.user_id;
+    console.log("in_init_a");
+    console.log(a)
     res.redirect(
       tokenStorage.getUnauthedClient(req, res).generateAuthUrl({
         access_type: 'offline',
         scope: scopes,
         prompt: 'consent', // Needed so we receive a refresh token every time
-        state: req.query
+        state: req.query.toString()
       })
+      
     );
     if (next) {
       next();
