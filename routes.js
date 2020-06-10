@@ -30,13 +30,7 @@ exports.init = (arg1, arg2, arg3) => {
   //console.log(arg3);
   const handler = (req, res, scopes, next) => {
   console.log("in_init");
-  console.log(req);
-  console.log("arg2");
-  console.log(res);
-  console.log("arg3");
-  console.log(scopes);
-  console.log("arg4");
-  console.log(next);
+  console.log(req.query);
     res.redirect(
       tokenStorage.getUnauthedClient(req, res).generateAuthUrl({
         access_type: 'offline',
