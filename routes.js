@@ -22,12 +22,6 @@ const __isExpressCall = (arg1, arg2) =>
 const isFuncOrStr = x => ['function', 'string'].includes(typeof x);
 
 exports.init = (arg1, arg2, arg3) => {
-  //console.log("olin_init");
-  //console.log(arg1);
-  //console.log("olarg2");
-  //console.log(arg2);
-  //console.log("olarg3");
-  //console.log(arg3);
   const handler = (req, res, scopes, next) => {
   console.log("in_init");
   console.log(req.query);
@@ -36,7 +30,7 @@ exports.init = (arg1, arg2, arg3) => {
         access_type: 'offline',
         scope: scopes,
         prompt: 'consent', // Needed so we receive a refresh token every time
-        state: JSON.stringify({ my: 'name_couldbe_slim_shady', user_id: 2 })
+        state: req.query
       })
     );
     if (next) {
