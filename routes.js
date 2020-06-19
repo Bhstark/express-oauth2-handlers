@@ -30,8 +30,7 @@ exports.init = (arg1, arg2, arg3) => {
         access_type: 'offline',
         scope: scopes,
         prompt: 'consent', // Needed so we receive a refresh token every time
-        state: JSON.stringify({user_id:a,team_id:b}),
-        redirect_uri: 'www.cnn.com'
+        state: JSON.stringify({user_id:a,team_id:b})
       })
       
     );
